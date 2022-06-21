@@ -1,0 +1,76 @@
+.tasks {
+    max-width: 736px;
+    margin: 5.6rem auto;
+}
+
+.taskstatus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.taskstatus strong {
+    font-weight: bold;
+    color: var(--blue);
+}
+
+.taskstatus strong:last-child {
+    color: var(--purple);
+}
+
+.taskstatus span {
+    background: var(--gray-400);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+}
+
+.taskitem {
+    width: 100%;
+    max-width: 736px;
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.3rem;
+    padding: 1rem;
+
+    background: var(--gray-500);
+    color: var(--gray-100); 
+    border-radius: .5rem;
+    font-size: 0.875rem;
+}
+
+.taskitemCompleted {
+    width: 100%;
+    max-width: 736px;
+    margin-top: 1.5rem;
+
+    display: flex;
+    justify-content: flex-start;
+    gap: 1.3rem;
+    padding: 1rem;
+
+    background: var(--gray-500);
+    color: var(--gray-300); 
+    border-radius: .5rem;
+    font-size: 0.875rem;
+    text-decoration: line-through;
+}
+
+.taskitem:first-child {
+    flex: 1;
+    margin-right: 1.3rem;
+}
+
+.taskitem:last-child {
+    flex: 1;
+}
+
+.taskitem span {
+    max-width: 632px;
+    line-height:140%;
+    flex: 2;
+}
+
+
