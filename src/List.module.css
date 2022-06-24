@@ -1,0 +1,30 @@
+.lists {
+    max-width: 736px;
+    margin: 5.6rem auto;
+}
+
+.listsstatus {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.listsstatus strong {
+    font-weight: bold;
+    color: var(--blue);
+    font-size: 0.875rem;
+}
+
+.listsstatus strong:last-child {
+    color: var(--purple);
+}
+
+.listsstatus span {
+    background: var(--gray-400);
+    padding: 2px 8px;
+    border-radius: 999px;
+    margin-left: 0.5rem;
+    color: var(--white);
+    font-size: 0.75rem;
+}
+
