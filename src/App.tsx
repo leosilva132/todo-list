@@ -8,7 +8,6 @@ export function App() {
   return (
     <div>
       <Header />
-      <NewTask />
       <List />
     </div>
   )
