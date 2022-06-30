@@ -1,0 +1,17 @@
+.notask {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 736px;
+    margin: 5.6rem auto;
+    padding: 0 10px 0 10px;
+}
+
+.notask h2 p {
+    text-align: center;
+    color: var(--gray-300);
+}
+
+.notask svg {
+    margin-bottom: 1rem;
+}

@@ -1,57 +1,51 @@
-import { Trash, Circle, CheckCircle, IconWeight } from 'phosphor-react';
+import { Trash, Circle, CheckCircle, IconWeight, IconProps } from 'phosphor-react';
 import { useState } from 'react';
 import styles from './Tasks.module.css';
 
 interface TasksProps {
-    content: string;
+    title: string;
+    Completed: boolean;
+    id: number;
+    toggleTaskCompletion: Function;
+    deletedTask: Function;
 }
 
-export function Tasks({ content }: TasksProps){
+export function Tasks({ title, Completed, id, toggleTaskCompletion, deletedTask }: TasksProps){
 
-    const [CircleWeight, setCircleWeight] = useState<IconWeight>("bold");
-    const [CheckCicleColor, setCheckCicleColor] = useState<IconWeight>("var(--purple-dark)");
-    const [isComplete, setIsComplete] = useState(false);
-    const [icon, setIcon] = useState(<Circle 
-        color="var(--blue)"
-         weight={CircleWeight}
-         cursor="pointer" 
-         size={24} 
-         className={styles.circle} 
-        />);
-  
-    function handleCompleteTask(){
-        if(isComplete == false){
-            setIsComplete(true);
-            setIcon(<CheckCircle 
-                color={CheckCicleColor} 
-                cursor='pointer' 
-                weight='fill'
-                size={24} 
-                onMouseOver={() => setCheckCicleColor('var(--purple)')}
-                onMouseLeave={() => setCheckCicleColor('var(--purple-dark)')}/>)
-        } else {
-            setIsComplete(false);
-            setIcon(<Circle 
-                color="var(--blue)"
-                 weight={CircleWeight}
-                 cursor="pointer" 
-                 size={24} 
-                 className={styles.circle} 
-                 />)
-        }
-        
-    }
-
+    const [weight, setWeight] = useState<IconWeight>('bold');
+    const [color, setColor] = useState<string>('var(--purple-dark)');
 
     return (
-        <ul className={styles.tasklist}>            
-            <li className={isComplete ? styles.taskitemCompleted : styles.taskitem }>
-                <div onClick={handleCompleteTask}>
-                    {icon}  
+        
+        <li className={Completed ? styles.taskitemCompleted : styles.taskitem }>
+                <div onClick={() => toggleTaskCompletion(id)}>
+                    { <span>{Completed ? <CheckCircle 
+                        color={color} 
+                        cursor='pointer' 
+                        weight='fill'
+                        size={24}
+                        onMouseEnter={() => setColor('var(--purple)')}
+                        onMouseLeave={() => setColor('var(--purple-dark)')}
+                        />
+                        : <Circle 
+                        color="var(--blue)"
+                        weight={weight}
+                        cursor="pointer" 
+                        size={24} 
+                        className={styles.circle} 
+                        onMouseEnter={() => setWeight('duotone')}
+                        onMouseLeave={() => setWeight('bold')}
+                        />}
+                        </span>
+                    }
                 </div>       
-                <span className={styles.taskText}>{content}</span>
-                <Trash cursor="pointer" size={32} className={styles.trash} />
+                <span className={styles.taskText}>{title}</span>
+                <Trash cursor="pointer" 
+                size={32} 
+                className={styles.trash}
+                onClick={() => deletedTask(id)} />
             </li>
-        </ul>
     );
 }
+
+
